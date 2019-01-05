@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {{#if title}}
+        {{title}}
+      {{else}}
+        webpage
+      {{/if}}
+    </title>
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!-- script -->
+    <script type="text/javascript" src="../js/script.js"></script>
+
+    {{#each scripts}}
+      {{#if src}}
+        <script type="text/javascript" src="{{src}}"></script>
+      {{else if script}}
+        <script type="text/javascript">
+          {{script}}
+        </script>
+      {{/if}}
+    {{/each}}
+
+    {{{head}}}
+
+  </head>
+  <body>
+
+    {{{body}}}
+
+  </body>
+</html>
