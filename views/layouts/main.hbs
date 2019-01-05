@@ -36,7 +36,37 @@
   </head>
   <body>
 
-    {{{body}}}
+    <div class="main">
+      <div class="container cntnr">
+        <!-- https://getbootstrap.com/docs/4.2/examples/blog/ -->
+        <header class="header">
+          <!--img src="https://kolsasspeiderne.files.wordpress.com/2012/10/cropped-header-skilt2.jpg" class="header-image"-->
+          <h1 class="header-main">Kolsås</h1>
+          KFUK-KFUM speiderne
+        </header>
+
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="#">Program</a>
+            <a class="p-2 text-muted" href="#">Aktivitetskalender</a>
+            <a class="p-2 text-muted" href="#">Speiding</a>
+            <a class="p-2 text-muted" href="#">Nyttige lenker</a>
+            <a class="p-2 text-muted" href="#">Om oss</a>
+            <a class="p-2 text-muted" href="#">Kontakt oss</a>
+          </nav>
+        </div>
+
+        <main role="main">
+
+          {{{body}}}
+
+        </main>
+      </div>
+
+      <footer class="blog-footer">
+        <p>Laget av Theodor Kvalsvik Lauritzen</p>
+      </footer>
+    </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
