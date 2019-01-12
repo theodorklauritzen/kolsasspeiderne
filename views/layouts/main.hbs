@@ -18,6 +18,50 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    {{{head}}}
+
+  </head>
+  <body>
+
+    <div class="main">
+      <div class="container cntnr">
+        <!-- https://getbootstrap.com/docs/4.2/examples/blog/ -->
+        <header class="header">
+          <!--img src="https://kolsasspeiderne.files.wordpress.com/2012/10/cropped-header-skilt2.jpg" class="header-image"-->
+          <h1 class="header-main"><a href="/" class="header-main-link">Kolsås</a></h1>
+          KFUK-KFUM speiderne
+        </header>
+
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="/Program">Program</a>
+            <a class="p-2 text-muted" href="/Aktivitetskalender">Aktivitetskalender</a>
+            <a class="p-2 text-muted" href="/Speiding">Speiding</a>
+            <a class="p-2 text-muted" href="/Nyttige_lenker">Nyttige lenker</a>
+            <a class="p-2 text-muted" href="/Om_oss">Om oss</a>
+            <a class="p-2 text-muted" href="/kontakt_oss">Kontakt oss</a>
+          </nav>
+        </div>
+
+        <main role="main">
+
+          {{{body}}}
+
+        </main>
+      </div>
+
+      <footer class="footer">
+        <p>Laget av Theodor Kvalsvik Lauritzen</p>
+      </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
     <!-- script -->
     <script type="text/javascript" src="../js/script.js"></script>
 
@@ -30,49 +74,5 @@
         </script>
       {{/if}}
     {{/each}}
-
-    {{{head}}}
-
-  </head>
-  <body>
-
-    <div class="main">
-      <div class="container cntnr">
-        <!-- https://getbootstrap.com/docs/4.2/examples/blog/ -->
-        <header class="header">
-          <!--img src="https://kolsasspeiderne.files.wordpress.com/2012/10/cropped-header-skilt2.jpg" class="header-image"-->
-          <h1 class="header-main">Kolsås</h1>
-          KFUK-KFUM speiderne
-        </header>
-
-        <div class="nav-scroller py-1 mb-2">
-          <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">Program</a>
-            <a class="p-2 text-muted" href="#">Aktivitetskalender</a>
-            <a class="p-2 text-muted" href="#">Speiding</a>
-            <a class="p-2 text-muted" href="#">Nyttige lenker</a>
-            <a class="p-2 text-muted" href="#">Om oss</a>
-            <a class="p-2 text-muted" href="#">Kontakt oss</a>
-          </nav>
-        </div>
-
-        <main role="main">
-
-          {{{body}}}
-
-        </main>
-      </div>
-
-      <footer class="blog-footer">
-        <p>Laget av Theodor Kvalsvik Lauritzen</p>
-      </footer>
-    </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <!-- bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
 </html>
