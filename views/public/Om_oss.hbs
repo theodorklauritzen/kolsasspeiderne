@@ -14,7 +14,21 @@
   Vi har alltid plass til flere speidere. Torsdager er speiderdagen i Kolsås. Vi har våre møter vanligvis i underetasjen i <a href="http://no.wikipedia.org/wiki/Helgerud_kirke">Helgerud kirke</a> eller ute i området, med tidspunktet torsdag kl.
   17:30-19:00 (stifinnere) og torsdag 19:00-20:30 (vandrere). Du er velkommen til å komme innom og se hva vi holder på med.
 </p>
-<iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.no/maps/ms?msa=0&amp;msid=204135216250392638375.0004f0df8cfb23ec92d18&amp;ie=UTF8&amp;t=m&amp;ll=59.902401,10.513337&amp;spn=0.003766,0.00912&amp;z=16&amp;output=embed" width="425" height="350" frameborder="0"></iframe>
+<iframe
+  id="embeded-map"
+  width="500"
+  height="500"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC9CUDd_mbBIPxcwvofOTqf81Vn_A6RkZM
+    &q=Helgerud+menighet,Gjettum+Norway" allowfullscreen>
+</iframe>
+<script type="text/javascript">
+  function resizeMap() {
+    $("#embeded-map").width($("main").innerWidth())
+  }
+  resizeMap()
+  $(window).resize(resizeMap)
+</script>
 <p>
   For mer informasjon, kontakt vår <a href="/Kontakt_oss">troppsleder</a>.
 </p>
