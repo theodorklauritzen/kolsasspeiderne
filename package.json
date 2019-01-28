@@ -33,6 +33,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.3",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "googleapis": "^36.0.0"
   }
 }
