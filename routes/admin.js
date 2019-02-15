@@ -32,6 +32,43 @@ oauth2Client.on('tokens', (tokens) => {
 });
 
 // mssql database configuration
+const sql = require('mssql')
+
+const config = {
+    user: process.env.SQL_USERNAME,
+    password: process.env.SQL_PASSWORD,
+    server: process.env.SQL_SERVER,
+    database: process.env.SQL_DATABASE/*,
+    dialect: "mssql",
+    dialectOptions: {
+        instanceName: "SQLEXPRESS"
+    }*/
+}
+
+async () => {
+    try {
+        let pool = await sql.connect(`mssql://${config.user}:${config.password}@${config.server}/${config.database}`)
+        const result = await pool.Request().query('SELECT * from Users')
+        console.log("---")
+        console.dir(result)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+/*sql.connect(config, err => {
+    // ... error checks
+    if (err) console.log(err)
+
+    // Query
+    new sql.Request().query('SELECT * FROM Users', (err, result) => {
+        if (err) console.log(err)
+
+        console.dir(result)
+    })
+
+    // https://www.google.com/search?num=20&safe=active&client=firefox-b-d&biw=1536&bih=750&ei=tZ5hXOmYDIn6qwHri7KoBw&q=bigint+data+type+size&oq=bigint+data+type+size&gs_l=psy-ab.3..0i30j0i5i30j0i8i30.2012.2012..2813...0.0..0.96.96.1......0....1..gws-wiz.......0i71.Ac23pbJ7Cg8
+})*/
 
 // redirect to Google oauth
 router.get("/login", (req, res, next) => {
