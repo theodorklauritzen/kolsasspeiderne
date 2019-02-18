@@ -7,7 +7,8 @@
 
 .main {
   background-color: #004120;
-  background-image: url("https://images.dn.no/image/p5G%2B%2BH5FQ6khNu%2BajI5quQVjsEqvTO1dalmRuZMDNQc%3D/nhst/binary/aa8e6a7e68cd38183d34c7dcaa07825a");
+  /*background-image: url("https://images.dn.no/image/p5G%2B%2BH5FQ6khNu%2BajI5quQVjsEqvTO1dalmRuZMDNQc%3D/nhst/binary/aa8e6a7e68cd38183d34c7dcaa07825a");*/
+  background-image: url("/img/background.jpg");
   background-repeat: no-repeat;
   /*background-size: 100%;*/
   background-attachment: fixed;

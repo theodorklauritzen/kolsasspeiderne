@@ -129,4 +129,30 @@ router.use((req, res, next) => {
   }
 })
 
+router.get("/Brukere", (req, res, next) => {
+  res.render("public/admin/Brukere", {
+    user: [
+      {
+        name: "Theodor Kvalsvik Lauritzen",
+        roles: ["Admin", "Blogger"]
+      },
+      {
+        name: "Elias Kvalsvik Lauritzen",
+        roles: ["Blogger"]
+      },
+      {
+        name: "Ola Nordmann",
+        roles: []
+      }
+    ]
+  })
+
+  /*
+  SELECT * FROM mytable
+  WHERE column1 LIKE '%word1%'
+    AND column1 LIKE '%word2%'
+    AND column1 LIKE '%word3%'
+  */
+})
+
 module.exports = router;
