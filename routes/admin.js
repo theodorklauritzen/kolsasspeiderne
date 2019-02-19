@@ -47,8 +47,8 @@ const config = {
 
 sql.connect(config, err => {
     // ... error checks
-    if (err) console.log(err)
-    else console.log("Successfully connected to the sql server")
+    //if (err) console.log(err)
+    //else console.log("Successfully connected to the sql server")
 })
 
 function getUserData(id) {
@@ -130,22 +130,37 @@ router.use((req, res, next) => {
 })
 
 router.get("/Brukere", (req, res, next) => {
-  res.render("public/admin/Brukere", {
-    user: [
-      {
-        name: "Theodor Kvalsvik Lauritzen",
-        roles: ["Admin", "Blogger"]
-      },
-      {
-        name: "Elias Kvalsvik Lauritzen",
-        roles: ["Blogger"]
-      },
-      {
-        name: "Ola Nordmann",
-        roles: []
-      }
-    ]
-  })
+  if(!req.query || Object.getOwnPropertyNames(req.query).length === 0 || (req.query.q === "" && Object.getOwnPropertyNames(req.query).length === 1)) {
+    res.render("public/admin/Brukere", {
+      user: [
+        {
+          id: 1,
+          name: "Theodor Kvalsvik Lauritzen",
+          roles: ["Admin", "Blogger"]
+        },
+        {
+          id: 2,
+          name: "Elias Kvalsvik Lauritzen",
+          roles: ["Blogger"]
+        },
+        {
+          id: 3,
+          name: "Ola Nordmann",
+          roles: []
+        }
+      ]
+    })
+  } else {
+    res.render("public/admin/Brukere", {
+      query: req.query,
+      user: [
+        {
+          name: req.query.q,
+          roles: [req.query.roleAdmin ? "Admin" : "", req.query.roleBlogger ? "Blogger" : ""]
+        }
+      ]
+    })
+  }
 
   /*
   SELECT * FROM mytable
