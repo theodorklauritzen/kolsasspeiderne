@@ -45,23 +45,11 @@ const config = {
     }*/
 }
 
-sql.connect(config, err => {
+const pool = sql.connect(config, err => {
     // ... error checks
-    //if (err) console.log(err)
-    //else console.log("Successfully connected to the sql server")
+    if (err) console.log(err)
+    else console.log("Successfully connected to the sql server")
 })
-
-function getUserData(id) {
-  new sql.Request().query(`SELECT * FROM Users WHERE ID = ${id}`, (err, result) => {
-      if (err) console.log(err)
-      new sql.Request().query(`SELECT userRole FROM UserRoles WHERE userID = ${id}`, (err, result2) => {
-          if (err) console.log(err)
-          let ret = result.recordset[0]
-          ret.roles = result2.recoedset
-          return ret
-      })
-  })
-}
 
 
 // redirect to Google oauth
@@ -129,45 +117,42 @@ router.use((req, res, next) => {
   }
 })
 
-router.get("/Brukere", (req, res, next) => {
-  if(!req.query || Object.getOwnPropertyNames(req.query).length === 0 || (req.query.q === "" && Object.getOwnPropertyNames(req.query).length === 1)) {
-    res.render("public/admin/Brukere", {
-      user: [
-        {
-          id: 1,
-          name: "Theodor Kvalsvik Lauritzen",
-          roles: ["Admin", "Blogger"]
-        },
-        {
-          id: 2,
-          name: "Elias Kvalsvik Lauritzen",
-          roles: ["Blogger"]
-        },
-        {
-          id: 3,
-          name: "Ola Nordmann",
-          roles: []
-        }
-      ]
-    })
-  } else {
-    res.render("public/admin/Brukere", {
-      query: req.query,
-      user: [
-        {
-          name: req.query.q,
-          roles: [req.query.roleAdmin ? "Admin" : "", req.query.roleBlogger ? "Blogger" : ""]
-        }
-      ]
-    })
-  }
+router.get("/Brukere", async (req, res, next) => {
+  try {
+    let result = await pool.request()
+      .query('SELECT ID, displayName FROM Users')
+    let user = []
+    for(let i = 0; i < result.recordset.length; i++) {
+      let userResult = await pool.request()
+        .input('ID', sql.Int, result.recordset[i].ID)
+        .query('SELECT userRole FROM UserRoles WHERE userID = @ID')
 
-  /*
-  SELECT * FROM mytable
-  WHERE column1 LIKE '%word1%'
-    AND column1 LIKE '%word2%'
-    AND column1 LIKE '%word3%'
-  */
+      let roles = []
+      for(let i = 0; i < userResult.recordset.length; i++) {
+        let r = userResult.recordset[i].userRole
+        switch (r) {
+          case 'a':
+            roles.push("admin")
+            break;
+          case 'b':
+            roles.push("blogger")
+            break;
+        }
+      }
+
+      user.push({
+        name: result.recordset[i].displayName,
+        roles: roles
+      })
+    }
+
+    res.render("public/admin/Brukere", {
+      user: user
+    })
+  } catch (err) {
+    console.log(err)
+    res.render("stats/500")
+  }
 })
 
 module.exports = router;
